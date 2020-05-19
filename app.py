@@ -179,7 +179,7 @@ def stagingDestinationForm():
 
 @app.route('/stagingUpstreamForm', methods=["GET", "POST"])
 def stagingUpstreamForm():
-    global SourceSTORAGE_TYPE, AKVsecret_name, ADLSURI, SRC_FOLDER_PATH, FILE_NAME,rg_name,df_name,subscription_id,TENANT_ID,CLIENT_ID,keyvaultName,SINK_FOLDER_PATH,FILE_NAME
+    global SourceSTORAGE_TYPE, AKVsecret_name, ADLSURI, SRC_FOLDER_PATH, FILE_NAME, rg_name, df_name, subscription_id, TENANT_ID, CLIENT_ID, keyvaultName, SINK_FOLDER_PATH, FILE_NAME
     if request.method == 'POST':
         response = request.form
         SourceSTORAGE_TYPE = response['UpstreamStorageType']
@@ -188,7 +188,10 @@ def stagingUpstreamForm():
         SRC_FOLDER_PATH = response['stagingUpstreamADLSFolderPath']
         FILE_NAME = response['stagingUpstreamADLSFileName']
 
-        DynamicADF(rg_name,df_name,subscription_id,TENANT_ID,CLIENT_ID,keyvaultName,AKVsecret_name,ADLSURI,SRC_FOLDER_PATH,SINK_FOLDER_PATH,FILE_NAME)
+        DynamicADF(rg_name, df_name, subscription_id, TENANT_ID, CLIENT_ID, keyvaultName,
+                   AKVsecret_name, ADLSURI, SRC_FOLDER_PATH, SINK_FOLDER_PATH, FILE_NAME)
+
+        return render_template('successfulDeploy.html', DataFactory_Name=str(df_name))
     return render_template('stagingUpstreamForm.html')
 
 

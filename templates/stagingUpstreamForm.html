@@ -51,12 +51,12 @@
       </header><!-- End Header -->
     <section id="" class="d-flex align-items-center">
     <div class = "container">
-      <h2 class = "mt-3">Enter Upstream Params</h2>
+      <h2 class = "mt-3">Enter Source Details</h2>
       <form action = "/stagingUpstreamForm" method = "POST">
         <br>
         <br>
         <div class="form-group">
-            <label for="pain">Upstream Storage Type</label>
+            <label for="pain">Storage Type</label>
             <select class="form-control custom-select" name = "UpstreamStorageType" id="UpstreamStorageType">
                 <option value = "ADLS Gen1">ADLS Gen1</option>
                 <option value = "ADLS Gen2">ADLS Gen2</option>
@@ -72,7 +72,7 @@
         </div>
 
         <div class="form-group">
-          <label for="fever">Destination ADLS URL</label>
+          <label for="fever">ADLS URL</label>
           <input class="form-control" id="stagingUpstreamADLSURL" name = "stagingUpstreamADLSURL" placeholder="Enter staging destination ADLS URL">
         </div>
 
@@ -88,7 +88,7 @@
 
         <br>
         <br>
-        <button class="btn btn-primary">Deploy Staging Activities</button>
+        <button class="btn btn-primary">Deploy</button>
       </form>
     </div>
   </section>

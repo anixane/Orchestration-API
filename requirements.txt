@@ -1,0 +1,4 @@
+Flask
+gunicorn
+azure-mgmt-resource
+azure-mgmt-datafactory

@@ -150,6 +150,7 @@ def credentialsForm():
         keyvaultName = response['AzureKeyVaultName']
         rg_name = response['ResourceGroupName']
         df_name = response['AzureDataFactoryName']
+        print(response)
         return redirect(url_for('stagingDestinationForm'))
     return render_template('credentialsForm.html')
 
@@ -162,20 +163,22 @@ def stagingDestinationForm():
         ADLSURI = response['stagingDestinationADLSURL']
         SINK_FOLDER_PATH = response['stagingDestADLSFolderPath']
         AKVsecret_name = response['stagingDestAzureKeyVaultSecretName']
+        print(response)
         return redirect(url_for('stagingUpstreamForm'))
     return render_template('stagingDestinationForm.html')
 
 
 @app.route('/stagingUpstreamForm', methods=["GET", "POST"])
 def stagingUpstreamForm():
-    global SourceSTORAGE_TYPE, AKVsecret_name, ADLSURI, SRC_FOLDER_PATH, FILE_NAME, rg_name, df_name, subscription_id, TENANT_ID, CLIENT_ID, keyvaultName, SINK_FOLDER_PATH, FILE_NAME
+    global SourceSTORAGE_TYPE, AKVsecret_name, ADLSURI, SRC_FOLDER_PATH, FILES_NAME, rg_name, df_name, subscription_id, TENANT_ID, CLIENT_ID, keyvaultName, SINK_FOLDER_PATH
     if request.method == 'POST':
         response = request.form
         SourceSTORAGE_TYPE = response['UpstreamStorageType']
         AKVsecret_name = response['stagingUpstreamAzureKeyVaultSecretName']
         ADLSURI = response['stagingUpstreamADLSURL']
         SRC_FOLDER_PATH = response['stagingUpstreamADLSFolderPath']
-        FILE_NAME = response['stagingUpstreamADLSFileName']
+        FILES_NAME = response['stagingUpstreamADLSFileName']
+        print(response)
 
         DynamicADF(rg_name,df_name,subscription_id,TENANT_ID,CLIENT_ID,keyvaultName,AKVsecret_name,Source_ADLSURI,Sink_ADLSURI,SRC_FOLDER_PATH,SINK_FOLDER_PATH,FILES_NAME)
 

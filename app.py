@@ -177,7 +177,7 @@ def stagingUpstreamForm():
         AKVsecret_name = response['stagingUpstreamAzureKeyVaultSecretName']
         ADLSURI = response['stagingUpstreamADLSURL']
         SRC_FOLDER_PATH = response['stagingUpstreamADLSFolderPath']
-        FILES_NAME = response['stagingUpstreamADLSFileName']
+        #FILES_NAME = response['stagingUpstreamADLSFileName']
         print(response)
 
         DynamicADF(rg_name,df_name,subscription_id,TENANT_ID,CLIENT_ID,keyvaultName,AKVsecret_name,Source_ADLSURI,Sink_ADLSURI,SRC_FOLDER_PATH,SINK_FOLDER_PATH,FILES_NAME)
